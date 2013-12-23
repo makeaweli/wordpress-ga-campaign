@@ -3,6 +3,8 @@ global $metabox;
     function get_campaign_url($post_url, $source, $medium, $campaign) {
       $timestamp = get_the_date('Ymd');
       $slug = basename(get_permalink());
+      global $post;
+      $slug = $post->post_name;
 
       switch($campaign) {
         case '':
