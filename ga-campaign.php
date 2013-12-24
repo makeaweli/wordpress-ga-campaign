@@ -1,7 +1,7 @@
 <?php
 /**
  * @package GA_Campaign
- * @version 1.1
+ * @version 1.2
  */
 /*
 Plugin Name: Google Analytics Campaign
@@ -10,6 +10,12 @@ Description: Create Google Analytics custom campaign urls for each post.
 Author: Jason M. Kalawe
 Version: 1.0
 Author URI: http://makea.kalawe.com
+
+# CHANGELOG
+
+## 1.2
+
+* Correctly use $post->post_name by referencing $post as a global variable
 */
 
 // MetaBox Plugin

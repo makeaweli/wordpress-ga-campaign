@@ -1,22 +1,33 @@
 <?php
 global $metabox;
-    function get_campaign_url($post_url, $source, $medium, $campaign) {
-      $timestamp = get_the_date('Ymd');
-      $slug = basename(get_permalink());
-      global $post;
-      $slug = $post->post_name;
 
-      switch($campaign) {
-        case '':
-            return sprintf('%s?utm_source=%s&utm_medium=%s&utm_campaign=%s-%s', $post_url, $source, $medium, $timestamp, $slug);
-        break; 
+function get_campaign_url($post_url, $source, $medium, $campaign) {
+  global $post;
+  $timestamp = get_the_date('Ymd');
+  $slug = basename(get_permalink());
 
-        default: 
-            return sprintf('%s?utm_source=%s&utm_medium=%s&utm_campaign=%s', $post_url, $source, $medium, $campaign);
-        break;  
-      }
-      
-    }
+  $slug = $post->post_name;
+
+  switch($campaign) {
+    case '':
+        return sprintf('%s?utm_source=%s&utm_medium=%s&utm_campaign=%s-%s', $post_url, $source, $medium, $timestamp, $slug);
+    break; 
+
+    default: 
+        return sprintf('%s?utm_source=%s&utm_medium=%s&utm_campaign=%s', $post_url, $source, $medium, $campaign);
+    break;  
+  }
+  
+}
+
+/* 
+ * http://wordpress.org/support/topic/how-to-get-a-post-in-draft-status-from-its-slug#post-1851692
+*/
+function get_post_id_from_slug( $slug )
+{
+  global $wpdb;
+  return $wpdb->get_var( "SELECT ID FROM $wpdb->posts WHERE post_name = '".$wpdb->escape( $slug )."' LIMIT 1" );
+}    
 ?>
 <div class="my_meta_control">
     <?php $metabox->the_field('campaign_name'); ?>
