@@ -1,13 +1,16 @@
 <?php
 global $metabox;
-
+print_r($post);
 function get_campaign_url($post_url, $source, $medium, $campaign) {
   global $post;
   $timestamp = get_the_date('Ymd');
-  $slug = basename(get_permalink());
 
   $slug = $post->post_name;
 
+  if($post->post_status == 'draft') {
+    
+  }
+  
   switch($campaign) {
     case '':
         return sprintf('%s?utm_source=%s&utm_medium=%s&utm_campaign=%s-%s', $post_url, $source, $medium, $timestamp, $slug);
