@@ -27,7 +27,7 @@ function get_campaign_url($post_id, $source, $medium, $campaign) {
  */
 function get_draft_permalink( $post_id ) {
 
-    require_once ABSPATH . '/wp-admin/includes/post.php';
+    //require_once ABSPATH . '/wp-admin/includes/post.php';
     list( $permalink, $postname ) = get_sample_permalink( $post_id );
 
     return str_replace( '%postname%', $postname, $permalink );
