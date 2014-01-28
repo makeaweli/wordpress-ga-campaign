@@ -133,7 +133,4 @@ HEREDOC;
 <?php
 print_r($_POST['ga-campaign']);
 }
-
-
 ?>
-
