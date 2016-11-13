@@ -46,6 +46,10 @@ function get_draft_permalink( $post_id ) {
     <br />
     <img src="<?php echo MYPLUGIN_PLUGIN_URL . '/images/pinterest.png'; ?>" width="25"/>
     <input type="text" name="facebook-campaign" value="<?php echo get_campaign_url($post->ID, 'pinterest', 'social', $metabox->get_the_value() ); ?>"  />
+
+    <br />
+    <img src="<?php echo MYPLUGIN_PLUGIN_URL . '/images/mailchimp-freddie.png'; ?>" width="25"/>
+    <input type="text" name="mailchimp-campaign" value="<?php echo get_campaign_url($post->ID, 'mailchimp', 'email', $metabox->get_the_value() ); ?>"  />
  
     <p><a href="#" id="view-custom-campaign-name">Custom Campaign Name</a></p>
         <?php $metabox->the_field('campaign_name'); ?>
